@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <item
+        android:id="@+id/shorts"
+        android:title="Stats"
+        android:icon="@drawable/baseline_pie_chart_24"
+        />
+
+    <item
+        android:title=""/>
+
+    <item
+        android:id="@+id/subscriptions"
+        android:title="News"
+        android:icon="@drawable/baseline_newspaper_24" />
+    <item
+        android:id="@+id/library"
+        android:title="Nearby"
+        android:icon="@drawable/baseline_location_on_24" />
+
+</menu>
