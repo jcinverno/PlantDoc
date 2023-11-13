@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_share:
                 replaceFragment(new ShareFragment());
                 break;
-            case R.id.nav_logout:
+            case R.id.nav_about:
                 replaceFragment(new AboutFragment());
                 break;
         }
