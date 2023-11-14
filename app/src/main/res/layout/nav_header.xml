@@ -6,7 +6,7 @@
     android:layout_height="250dp"
     android:gravity="center_vertical"
     android:padding="25dp"
-    android:background="@drawable/new_header_waver_green"
+    android:background="@drawable/new_header_waver_green_2"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
