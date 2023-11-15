@@ -1,19 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/dark_green"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".AboutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/about_us_welcome_plantdoc"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="About Us Fragment"
-        android:textSize="30sp"
-        android:layout_centerInParent="true"
-        android:textColor="@color/white"/>
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="About us"
+        android:textColor="@color/white"
+        android:layout_marginTop="65dp"
+        android:textSize="35sp"/>
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/about_us_welcome_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="PlantDoc. is an app specialized in identifying plant diseases from photographs of their leaves."
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:layout_margin="10dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp">
+
+        <Button
+            android:id="@+id/btn_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="App tutorial"
+            android:backgroundTint="@color/tropa_green_dark"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:layout_marginBottom="0dp"
+            android:layout_margin="10dp"/>
+            <!--android:onClick="onInstructionsButtonClick"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_ai_info"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="70dp"
+                android:text="AI Model Info"
+                android:backgroundTint="@color/tropa_green_dark"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+                <!--android:onClick="onAiInfoButtonClick"-->
+
+
+            <Button
+                android:id="@+id/btn_business_plan"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="70dp"
+                android:text="Business Plan"
+                android:backgroundTint="@color/tropa_green_dark"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+                <!--android:onClick="onBusinessPlanButtonClick"-->
+        </LinearLayout>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="*"
+        android:divider="@color/tropa_green_dark"
+        android:showDividers="middle"
+        android:layout_margin="15dp">
+
+        <TableRow
+            android:background="@color/tropa_green_dark">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="Degree"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinkedIn"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:padding="5dp"/>
+        </TableRow>
+
+        <!-- Creator 1 row -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Inês Rodrigues"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="MSc in Biochemistry"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinkedIn Profile"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:padding="2dp"/>
+        </TableRow>
+
+        <!-- Creator 2 row -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Joana Inverno"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="2dp"
+                android:text="MSc in Electronics and Computer Engineering"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinkedIn Profile"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:padding="2dp"/>
+        </TableRow>
+
+        <!-- Creator 3 row -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maria Alvarez"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="17sp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="MSc in in Micro and Nanotechnology Engineering"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                android:padding="2dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LinkedIn Profile"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:padding="2dp"/>
+        </TableRow>
+
+    </TableLayout>
+</LinearLayout>
