@@ -2,41 +2,65 @@ package com.example.bottomnavigationdemo;
 
 import android.Manifest;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.view.View;
+import android.widget.Toast;
+
+import org.tensorflow.lite.DataType;
+import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
+
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+import android.provider.MediaStore;
+
+import com.example.bottomnavigationdemo.ml.TfliteModel;
+
+
 
 public class CameraFragment extends Fragment {
 
     private static final int PERMISSION_CODE = 1000;
     private static final int IMAGE_CAPTURE_CODE = 1001;
     private Uri image_uri;
-
+    private Bitmap bitmap;
+    int imageSize = 64;
     ImageView mImageView;
     Button mCaptureBtn;
+    Button mPredictBtn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_camera, container, false);
 
         mImageView = view.findViewById(R.id.image_view);
         mCaptureBtn = view.findViewById(R.id.capture_image_btn);
+        mPredictBtn = view.findViewById(R.id.predict_image_btn);
 
         mCaptureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,6 +78,13 @@ public class CameraFragment extends Fragment {
                 } else {
                     openCamera();
                 }
+            }
+        });
+
+        mPredictBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(requireContext(), "Predict", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -87,8 +118,14 @@ public class CameraFragment extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == IMAGE_CAPTURE_CODE && resultCode == AppCompatActivity.RESULT_OK) {
-            // Update the ImageView with the captured image
-            mImageView.setImageURI(image_uri);
+            try {
+                // Set the captured image to the ImageView
+                bitmap = MediaStore.Images.Media.getBitmap(requireContext().getContentResolver(), image_uri);
+                mImageView.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
+
 }
