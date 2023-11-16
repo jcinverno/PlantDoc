@@ -18,34 +18,57 @@
         android:layout_marginTop="100dp"
         android:src="@drawable/baseline_image_24"/>
 
-    <Button
-        android:id="@+id/capture_image_btn"
-        android:text="Capture"
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginHorizontal="50dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="10dp"
-        android:padding="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="20dp"
-        android:textColor="@color/lavender"
-        android:backgroundTint="@color/white"
-        />
+        android:backgroundTint="@color/lavender"
+        app:cardCornerRadius="20dp">
 
-    <Button
-        android:id="@+id/predict_image_btn"
-        android:text="Predict"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginBottom="10dp"
-        android:padding="10dp"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="20dp"
-        android:textColor="@color/lavender"
-        android:backgroundTint="@color/white"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/capture_image_btn"
+                android:text="Capture Image"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                app:cardCornerRadius="20dp"
+                android:textColor="@color/lavender"
+                android:backgroundTint="@color/white">
+            </Button>
+
+            <TextView
+                android:id="@+id/plant_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="1dp"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                android:text=""/>
+
+            <Button
+                android:id="@+id/gallery_image_btn"
+                android:text="Select From Gallery"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="20dp"
+                android:textColor="@color/lavender"
+                android:backgroundTint="@color/white"
+                />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
 </LinearLayout>

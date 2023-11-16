@@ -13,10 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-import androidx.fragment.app.FragmentManager;
-import androidx.appcompat.app.AppCompatActivity;
 
+import android.widget.LinearLayout;
+import android.util.TypedValue;
 
 import android.view.View;
 import android.widget.Toast;
@@ -33,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.bottomnavigationdemo.ml.TfliteModel;
 
@@ -49,6 +49,7 @@ public class CameraFragment extends Fragment {
     ImageView mImageView;
     Button mCaptureBtn;
     Button mGalleryBtn;
+    TextView predictionTextView;
 
     String[] classes = {"Back Spot",
             "Black_measles",
@@ -80,6 +81,8 @@ public class CameraFragment extends Fragment {
         mImageView = view.findViewById(R.id.image_view);
         mCaptureBtn = view.findViewById(R.id.capture_image_btn);
         mGalleryBtn = view.findViewById(R.id.gallery_image_btn);
+
+        predictionTextView = view.findViewById(R.id.plant_text);
 
         mCaptureBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -254,6 +257,14 @@ public class CameraFragment extends Fragment {
                 maxPos = i;
             }
         }
-        Toast.makeText(requireContext(), "Prediction: " + classes[maxPos], Toast.LENGTH_SHORT).show();
+
+        mCaptureBtn.setVisibility(View.INVISIBLE);
+        mGalleryBtn.setVisibility(View.INVISIBLE);
+
+        String prediction = "Prediction: " + classes[maxPos];
+
+        predictionTextView.setText(prediction);
+        predictionTextView.setTextSize(30);
+        predictionTextView.setVisibility(View.VISIBLE);
     }
 }
