@@ -51,9 +51,9 @@ public class CameraFragment extends Fragment {
     Button mGalleryBtn;
     TextView predictionTextView;
 
-    String[] classes = {"Back Spot",
-            "Black_measles",
-            "Black Spot",
+    String[] classes = {"Bacterial Spot",
+            "Black measles",
+            "Black Rot",
             "Cedar Rust",
             "Common Rust",
             "Early Blight",
@@ -216,18 +216,19 @@ public class CameraFragment extends Fragment {
             ByteBuffer byteBuffer = ByteBuffer.allocateDirect(4 * imageSize * imageSize * 3);
             byteBuffer.order(ByteOrder.nativeOrder());
 
-            int[] intValues = new int[bitmap.getWidth()*bitmap.getHeight()];
-            bitmap.getPixels(intValues, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+            Bitmap reducedBitmap = getResizedBitmap(bitmap, imageSize);
+
+            int[] intValues = new int[reducedBitmap.getWidth()*reducedBitmap.getHeight()];
+            reducedBitmap.getPixels(intValues, 0, reducedBitmap.getWidth(), 0, 0, reducedBitmap.getWidth(), reducedBitmap.getHeight());
             int pixel = 0;
 
             for (int i = 0; i < imageSize; i++) {
                 for (int j = 0; j < imageSize; j++) {
-
                     if (pixel < intValues.length) {
                         int val = intValues[pixel++];
-                        byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1));
-                        byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1));
-                        byteBuffer.putFloat((val & 0xFF) * (1.f / 1));
+                        byteBuffer.putFloat((val & 0xFF) * (1.f / 1)); // Blue component
+                        byteBuffer.putFloat(((val >> 8) & 0xFF) * (1.f / 1)); // Green component
+                        byteBuffer.putFloat(((val >> 16) & 0xFF) * (1.f / 1)); // Red component
                     }
                 }
             }
@@ -245,6 +246,22 @@ public class CameraFragment extends Fragment {
             Toast.makeText(requireContext(), "" + e, Toast.LENGTH_SHORT).show();
         }
     }
+
+    public Bitmap getResizedBitmap(Bitmap image, int maxSize) {
+        int width = image.getWidth();
+        int height = image.getHeight();
+
+        float bitmapRatio = (float)width / (float) height;
+        if (bitmapRatio > 1) {
+            width = maxSize;
+            height = (int) (width / bitmapRatio);
+        } else {
+            height = maxSize;
+            width = (int) (height * bitmapRatio);
+        }
+        return Bitmap.createScaledBitmap(image, width, height, true);
+    }
+
 
     private void prediction(float[] probabilities) {
 
