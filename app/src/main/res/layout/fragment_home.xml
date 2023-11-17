@@ -16,7 +16,7 @@
             android:id="@+id/welcome_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="40dp"
             android:gravity="center"
             android:textColor="@android:color/white"
             android:text="Welcome to"/>
@@ -25,13 +25,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/plant_doc_title">
 
             <TextView
             android:id="@+id/plant_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="35sp"
+            android:textSize="45dp"
             android:textStyle="bold"
             android:textColor="@android:color/white"
             android:text="Plant"/>
@@ -41,13 +42,99 @@
                 android:id="@+id/doc_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35sp"
+                android:textSize="45dp"
                 android:textStyle="bold"
                 android:textColor="@color/dark_orange"
                 android:text="Doc."/>
 
         </LinearLayout>
 
-    </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp">
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Go ahead and explore the app!"
+                    android:gravity="center_horizontal"
+                    android:textColor="@android:color/white"
+                    android:textSize="22dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Diagnose your plant using the + sign."
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="22dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Check out the Newsletters!"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="22dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="You'll find fun activities and helpful tips for your plants."
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="22dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Find stores near you with Maps."
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="22dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="See how your plants are doing and their progress on Stats."
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="22dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="For any questions, please go to About Us page."
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="22dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"/>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 </RelativeLayout>
